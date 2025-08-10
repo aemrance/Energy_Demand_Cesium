@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div style="position: absolute; top: 3px; left: 10px; z-index: 30; background: white; padding: 3px; border-radius: 4px; box-shadow: 0 0 6px rgba(0,0,0,0.3); color: black;">
+  <label>
+    <input type="checkbox" id="togglePhotogrammetryCheckbox" />
+    <span id="toggleLabel">Show photogrammetry</span>
+  </label>
+</div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Cesium A+ Simplified Viewer</title>
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.116/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.116/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style>
+    html, body, #cesiumContainer { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; }
+    #controls, #legend, #loadingOverlay {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px;
+      border-radius: 6px;
+      z-index: 999;
+      font-size: 13px;
+    }
+    #controls { top: 30px; left: 10px; display: flex; gap: 5px; flex-direction: column; }
+    #legend { top: 140px; left: 10px; display: none; }
+    #loadingOverlay {
+      top: 0; width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="loadingOverlay">Loading...</div>
+  <div id="controls">
+    <button onclick="colorByHeight()">Color by Height</button>
+    <button onclick="highlightByStoreys()">Color by Storeys</button>
+     <button onclick="colorByEnergyDemand()">Energy Demand</button>
+    <button onclick="clearFilters()">Clear Filters</button>
+  </div>
+  <div id="legend"></div>
+  <script src="viewer-logic.js"></script>
+  <div id="infoPopup" style="position:absolute; display:none; background:white; padding:6px; border:1px solid #ccc; border-radius:4px; font-size:13px; pointer-events:none; z-index:1000;"></div>
+  
+ 
+</div>
+
+</body>
+</html>
+
